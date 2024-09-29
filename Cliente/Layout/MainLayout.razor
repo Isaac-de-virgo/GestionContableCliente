@@ -1,0 +1,36 @@
+﻿@inherits LayoutComponentBase
+<RadzenComponents />
+<RadzenLayout Style="grid-template-areas: 'rz-sidebar rz-header' 'rz-sidebar rz-body'">
+    <RadzenHeader>
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0">
+            <RadzenSidebarToggle Click="@(() => sidebarExpanded = !sidebarExpanded)" />
+            <RadzenLabel Text="Gestion Contable" />
+        </RadzenStack>
+    </RadzenHeader>
+    <RadzenSidebar @bind-Expanded="@sidebarExpanded">
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Text="Inicio" Icon="home" Path="/" />
+            <RadzenPanelMenuItem Text="Gestión de Cuentas Contables" Icon="timeline" Path="/weather" />
+            <RadzenPanelMenuItem Text="Gestión de Clientes/Proveedores" Icon="assignment_ind" Path="/weather" />
+            <RadzenPanelMenuItem Text="Gestión de Comprobantes" Icon="sticky_note_2" Path="/weather" />
+            <RadzenPanelMenuItem Text="Registro de Transacciones" Icon="restore" Path="/weather" />
+            <RadzenPanelMenuItem Text="Gestión de Impuestos" Icon="table_view" Path="/weather" />
+            <RadzenPanelMenuItem Text="Presupuestos" Icon="percent" Path="/weather" />
+            <RadzenPanelMenuItem Text="Asientos Recurrentes" Icon="vertical_split" Path="/weather" />
+            <RadzenPanelMenuItem Text="Administración de Usuarios y Roles" Icon="account_box" Path="/weather" />
+            <RadzenPanelMenuItem Text="Reportes y Consultas" Icon="fax" Path="/weather" />
+        </RadzenPanelMenu>
+        <div class="rz-p-4">
+            Gestion Contable 1.0.0
+        </div>
+    </RadzenSidebar>
+    <RadzenBody>
+        <div class="rz-p-4">
+            @Body
+        </div>
+    </RadzenBody>
+</RadzenLayout>
+
+@code {
+    bool sidebarExpanded = true;
+}
